@@ -15,10 +15,11 @@ services:
       postgres_host: postgres
       postgres_user: graph-node
       postgres_pass: let-me-in
-      postgres_db: graph-node
+      postgres_db: graph-node1
       ipfs: 'ipfs:5001'
 #      ethereum: 'mainnet:https://bsc-dataseed.binance.org/'
-      ethereum: 'mainnet:https://data-seed-prebsc-1-s1.binance.org:8545/'
+#      ethereum: 'mainnet:https://apis.ankr.com/71587f62d0eb40e888077f21b64ed8dc/265e0768e28172e8a9431bd1112ab835/binance/full/test/'
+      ethereum: 'mainnet:https://app-25b3eff4-1fcf-4da6-a31e-217e9273dbf6.hk.ankr.com/'
       GRAPH_LOG: info
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
@@ -34,6 +35,6 @@ services:
     environment:
       POSTGRES_USER: graph-node
       POSTGRES_PASSWORD: let-me-in
-      POSTGRES_DB: graph-node
+      POSTGRES_DB: graph-node1
     volumes:
       - ./data/postgres:/var/lib/postgresql/data

@@ -1,18 +1,17 @@
 specVersion: 0.0.2
 description: Olympus DAO Subgraph
-repository: https://github.com/OlympusDAO/olympus-subgraph
+repository: https://github.com/sontung-xantus/tamdao
 schema:
   file: ./schema.graphql
 dataSources:
-
   #Staking Contract V2
   - kind: ethereum/contract
     name: OlympusStakingV2
-    network: mainnet
+    network: mumbai
     source:
-      address: '0x7d3356f3f0aD2E5FA212a4e7cE4B3dDc1129e90a'
+      address: '0x1713eE092Cd604F6bdE9A291f6C6b01A997f8B32'
       abi: OlympusStakingV2
-      startBlock: 12622679
+      startBlock: 21062450
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -74,14 +73,15 @@ dataSources:
         - function: unstake(uint256,bool)
           handler: handleUnstake
       file: ./src/OlympusStakingV2.ts
+
   #Staking Contract V2 Helper
   - kind: ethereum/contract
     name: OlympusStakingV2Helper
-    network: mainnet
+    network: mumbai
     source:
-      address: '0xFEf47c9661B6AF08ef432Dc48946C792D5277c9b'
+      address: '0xd797a4C4B1f8C3E34Afb2fC01a1a5B4D886170E4'
       abi: OlympusStakingV2Helper
-      startBlock: 12622725
+      startBlock: 21062450
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -136,14 +136,14 @@ dataSources:
           handler: handleStake
       file: ./src/OlympusStakingV2Helper.ts
 
-  #DAI Bond Contract V2
+# Dai bond v2
   - kind: ethereum/contract
-    name: DAIBondV3
-    network: mainnet
+    name: DAIBondV2
+    network: mumbai
     source:
-      address: '0xC488D140d55Fc544fE6C461056a83b43d0933A7a'
-      abi: DAIBondV3
-      startBlock: 12659928
+      address: '0xF67588C8C0a468a2Ffa5755B39103A697E8be387'
+      abi: DAIBondV2
+      startBlock: 21062450
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -194,18 +194,18 @@ dataSources:
       callHandlers:
         - function: deposit(uint256,uint256,address)
           handler: handleDeposit
-        - function: redeem(address,bool)
+        - function: redeem(bool)
           handler: handleRedeem
-      file: ./src/DAIBondV3.ts
+      file: ./src/DAIBondV2.ts
 
   # FRAX v1
   - kind: ethereum/contract
     name: FRAXBondV1
-    network: mainnet
+    network: mumbai
     source:
-      address: '0x4BbDEd29Fc774C5066799116E20a6B4d634Cd0Ea'
+      address: '0x6f182EE9f21681A0a13B0D6ad0709C47CC9D6486'
       abi: FRAXBondV1
-      startBlock: 12666825
+      startBlock: 21062450
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -262,11 +262,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: sOlympusERC20V2
-    network: mainnet
+    network: mumbai
     source:
-      address: '0x1E9Ab7F3DE33c9c927bC33D01b11e683B1De8A63'
+      address: '0xE0fC7C09830EFE8F3f723cA61aA05bE613CD4117'
       abi: sOlympusERC20V2
-      startBlock: 12622596
+      startBlock: 21062450
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -284,3 +284,5 @@ dataSources:
         - function: rebase(uint256,uint256)
           handler: rebaseFunction
       file: ./src/sOlympusERC20V2.ts
+
+
